@@ -1,7 +1,7 @@
-# *SeveringUpSomeMongXpresso*
-# Servering the best MongXpress Experience around.
+# *SeveringUpSomeAuthpresso*
+# Servering the best Authpresso Experience around.
 
-# Server request and response demonstration using Express, node.js, and MongoDB.
+# Username login information encoding demonstration using Express, node.js, and MongoDB.
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 
 ## Project Description
@@ -40,63 +40,17 @@ Using node.js, HTTP, superagent, Express, MongoDB, and Mongoose I have created a
 + Now from the the second terminal window you can make a series of GET, POST, PUT, and DELETE requests.
 
   ## These are the only variations of this API and endpoints possible.
-  ## You must Post a child first in order to be able to create toys. To create a Toy you MUST have the child ID.
+  ## You must first create a user with valid username, password, and email.
 
-  ### CHILD POST requests
-  + Example ==>`http POST localhost:3000/api/child name=name`
-  + Example w/ Mock info ==> `http POST localhost:3000/api/child name=Gavin`
+  ### User POST/signup requests
+  + Example ==>`http POST localhost:3000/api/signup username=name password=password email=test@test.com`
+  + Example w/ Mock info ==> `http POST localhost:3000/api/signup username=Gavinator password=35353 email=email@test.com`
 
-  ### CHILD GET requests
-  + Example.==>`http GET localhost:3000/api/child/idNumber`
-  + Example w/ Mock ID ==> `http GET localhost:3000/api/child/ee30e86a-36ee-4843-b47e-a252531bac41`
-
-
-  + *Alternatively to get all documents in collection*
-
-  + `http GET localhost:3000/api/child`
+  ### User GET/signin requests
+  + Example.==>`http GET localhost:3000/api/signin username:password`
+  + Example w/ Mock ID ==> `http GET localhost:3000/api/signin/gavinator:35353`
 
 
-  ### CHILD PUT requests
-  + Example ==>`http PUT localhost:3000/api/child/someid name=newName'`
-  + Example w/ Mock ID ==> `http PUT localhost:3000/api/child/96d6514b-b1da-4a11-a8a7-b044436a23ab name=PowerRangerGreen`
-
-  ### CHILD DELETE requests
-  + Example`http DELETE localhost:3000/api/child/some Id` will return 404.
-  + Example w/ Mock ID ==> `http DELETE localhost:3000/api/child/ee30e86a-36ee-4843-b47e-a252531bac41`.
-
-  ### Examples of bad endpoints
-  `http GET localhost:3000/api/child/PowerRanger`
-
-  `http GET localhost:3000/child/api/PowerRanger`
-
-  `http GET localhost:3000/api/child/`
-  ### TOY POST requests
-  + Example ==>`http POST localhost:3000/api/toy name=name desc=desc child:childIDToyBelongsToo`
-  + Example w/ Mock info ==> `http POST localhost:3000/api/toy name=PowerRanger desc='Super Awesome Red Ranger' child=59b1b943e85e6e58ac7eace9`
-
-  ### TOY GET requests
-  + Example.==>`http GET localhost:3000/api/toy/idNumber`
-  + Example w/ Mock ID ==> `http GET localhost:3000/api/toy/ee30e86a-36ee-4843-b47e-a252531bac41`
-
-  + *Alternatively to get all documents in collection*
-
-  + `http GET localhost:3000/api/toy`
-
-
-  ### TOY PUT requests
-  + Example ==>`http PUT localhost:3000/api/toy/someid name=new name desc=new desc'`
-  + Example w/ Mock ID ==> `http PUT localhost:3000/api/toy/96d6514b-b1da-4a11-a8a7-b044436a23ab name=PowerRangerGreen desc='Totally awesome Green Ranger'`
-
-  ### TOY DELETE requests
-  + Example`http DELETE localhost:3000/api/toy/some Id` will return 404.
-  + Example w/ Mock ID ==> `http DELETE localhost:3000/api/toy/ee30e86a-36ee-4843-b47e-a252531bac41`.
-
-  ### Examples of bad endpoints
-  `http GET localhost:3000/api/toy/PowerRanger`
-
-  `http GET localhost:3000/toy/api/PowerRanger`
-
-  `http GET localhost:3000/api/toy/`
 
 
 
