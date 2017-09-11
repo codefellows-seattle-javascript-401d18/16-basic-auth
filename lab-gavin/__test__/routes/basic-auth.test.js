@@ -28,7 +28,15 @@ describe('Testing basic auth routes', function() {
       });
     });
     describe('Invalid requests', () => {
-      test('Should throw 400 error', () => {
+      test('Should throw 400 error with bad signUp information', () => {
+        return superagent.post(':4000/api/signup')
+          .send({})
+          .then(res => {
+            this.res = res;
+            expect(this.res.status).toBe(400);
+          });
+      });
+      test('Should throw 404 error on bad endpoint', () => {
         return superagent.post(':4000/api/signup')
           .send({})
           .then(res => {
@@ -51,24 +59,21 @@ describe('Testing basic auth routes', function() {
       });
     });
     describe('Invalid requests', () => {
-      test('should throw 400', () => {
+      test('should throw 400 with bad signIn credentials', () => {
         return superagent.get(':4000/api/signin')
           .auth(this.mockUserData.password)
-          // .set('Authorization', `${this.mockUserData.username}:${this.mockUserData.password}`)
+          .then(res => {
+            expect(res.status).toBe(401);
+          });
+      });
+      test('should throw 404 for bad endpoint', () => {
+        return superagent.get(':4000/api/sigin')
+          .auth(this.mockUserData.password)
           .then(res => {
             expect(res.status).toBe(401);
           });
       });
     });
   });
-  // describe('DELETE to /api/delete', () => {
-  //   test('Should DELETE user for testing purposes', () => {
-  //     return superagent.delete(`:4000/api/delete`)
-  //       .auth(this.mockUserData.username, this.mockUserData.password)
-  //       .then(res => {
-  //         this.res = res;
-  //         expect(this.res.status).toBe(201);
-  //       });
-  //   });
-  // });
+
 });
