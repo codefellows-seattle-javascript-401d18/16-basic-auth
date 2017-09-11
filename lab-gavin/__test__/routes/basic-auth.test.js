@@ -10,14 +10,14 @@ describe('Testing basic auth routes', function() {
   beforeAll(server.start);
   afterAll(server.stop);
 
-  this.mockUserData = {
-    username: faker.internet.userName(),
-    password: faker.internet.password(),
-    email: faker.internet.email(),
-  };
 
   describe('POST to /api/signup', () => {
     describe('Valid requests', () => {
+      this.mockUserData = {
+        username: faker.internet.userName(),
+        password: faker.internet.password(),
+        email: faker.internet.email(),
+      };
       test('should POST a new user to the db, and return user data', () => {
         return superagent.post(':4000/api/signup')
           .send(this.mockUserData)
@@ -56,7 +56,7 @@ describe('Testing basic auth routes', function() {
           .auth(this.mockUserData.password)
           // .set('Authorization', `${this.mockUserData.username}:${this.mockUserData.password}`)
           .then(res => {
-            expect(res.status).toBe(400);
+            expect(res.status).toBe(401);
           });
       });
     });
