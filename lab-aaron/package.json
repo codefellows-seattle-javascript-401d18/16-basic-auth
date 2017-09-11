@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "lab16",
   "main": "index.js",
-  "main": "index.js",
   "directories": {
     "lib": "lib"
   },
