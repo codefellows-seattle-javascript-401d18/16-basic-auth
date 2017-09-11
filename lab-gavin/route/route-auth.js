@@ -6,7 +6,7 @@ const basicAuth = require('../lib/basic-auth-middleware');
 const User = require('../model/user');
 
 module.exports = function(router) {
-  router.post('/api/signup', (req, res, next) => {
+  router.post('/api/signup', (req, res) => {
     debug('POST /api/signup');
 
     // get rid of this before the req is handed back as a nested object in the res
@@ -22,8 +22,10 @@ module.exports = function(router) {
       .catch(err => errorHandler(err, req, res));
   });
 
-  router.get('/api/signin', basicAuth, (req, res, next) => {
+  router.get('/api/signin', basicAuth, (req, res) => {
     debug('GET /api/signin');
+
+    // http -a user:pass :5000/api/signin
 
     return User.findOne({ username: req.auth.username })
       .then(user => user.comparePasswordHash(req.auth.password))

@@ -51,6 +51,8 @@ node_modules
 jspm_packages
 .env
 env
+test.env
+*env
 
 # Optional npm cache directory
 .npm

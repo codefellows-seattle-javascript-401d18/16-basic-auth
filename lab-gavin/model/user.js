@@ -46,14 +46,14 @@ User.methods.generateFindHash = function() {
     function _generateFindHash() {
       this.findhash = crypto.randomBytes(32).toString('hex');
       this.save()
-      .then(() => resolve(this.findhash))
-      .catch(err => {
-        if(tries < 3) {
-          tries++;
-          _generateFindHash.call(this);
-        }
-        if(err) return reject(err);
-      });
+        .then(() => resolve(this.findhash))
+        .catch(err => {
+          if(tries < 3) {
+            tries++;
+            _generateFindHash.call(this);
+          }
+          if(err) return reject(err);
+        });
     }
   });
 };
@@ -63,11 +63,11 @@ User.methods.generateToken = function() {
 
   return new Promise((resolve, reject) => {
     this.generateFindHash()
-    .then(findhash => resolve(jwt.sign({ token: findhash }, process.env.APP_SECRET)))
-    .catch(err => {
-      console.error(err);
-      reject(err);
-    });
+      .then(findhash => resolve(jwt.sign({ token: findhash }, process.env.APP_SECRET)))
+      .catch(err => {
+        console.error(err);
+        reject(err);
+      });
   });
 };
 
