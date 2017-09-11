@@ -33,4 +33,5 @@ module.exports = function(router) {
       .then(token => res.send(token))
       .catch(err => errorHandler(err, req, res));
   });
+
 };
