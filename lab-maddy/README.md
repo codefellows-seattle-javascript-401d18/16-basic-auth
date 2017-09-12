@@ -1,25 +1,22 @@
 # Documentation
 
 ## What this project does:
-
-
+The goal of this project is to create a mock of instagram. And we're calling it cf gram- an app that can let you sign up and sign in, create galleries, and then images that belong to those galleries.
 
 ## Learning Objectives:
 * We will be able to create basic authorization middleware.
 * We will be able to test basic authorization for signup/signin routes.
 
-
-
 # Packages and commands to remember:
 ## New packages (introduced for this project):
-- npm install jsonwebtoken (for jwt (JSON web tokens); what makes it possible for us to create user tokens)- DONE
-- npm i bcrypt (For hasging user password) - DONE
-- npm install dotenv - DONE
+- npm install jsonwebtoken (Tor jwt (JSON web tokens); this is what makes it possible for us to create user tokens)- DONE
+- npm i bcrypt (For hashing user passwords) - DONE
+- npm install dotenv (This is for ) - DONE
 
 ## For Mongo:
-- To install Mongo-- npm install mongodb into your project directory
-- Start the MongoDB process-- mongod
-- Start the MongoDB shell-- mongo
+- npm install mongodb into your project directory (To install Mongo) -
+- mongod (To start the MongoDB process)
+- mongo (To start the MongoDB shell-- )
 
 ## For Mongoose:
 - npm install mongoose (To install mongoose) -
