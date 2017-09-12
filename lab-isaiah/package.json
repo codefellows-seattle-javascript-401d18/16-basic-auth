@@ -1,0 +1,63 @@
+{
+  "name": "lab16-isaiah",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "jest": {
+    "verbose": true,
+    "testEnvironment": "node",
+    "setupFiles": [
+      "./__test__/lib/jest-setup.js"
+    ],
+    "collectCoverage": true,
+    "coverageDirectory": "./coverage",
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
+  },
+  "scripts": {
+    "start": "node index.js",
+    "start:watch": "nodemon index.js",
+    "start:debug": "DEBUG=cfgram* nodemon index.js",
+    "start-db": "mkdir -p ./db && mongod --dbpath ./db",
+    "stop-db": "killall mongod",
+    "test": "jest",
+    "test:exit": "jest --forceExit",
+    "test:watch": "jest --watchAll",
+    "lint": "eslint .",
+    "lint:test": "npm run lint && npm test"
+  },
+  "keywords": [
+    "images",
+    "photos",
+    "uploads",
+    "codez"
+  ],
+  "author": "lonewalker72",
+  "license": "MIT",
+  "devDependencies": {
+    "debug": "^3.0.1",
+    "eslint": "^4.6.1",
+    "faker": "^4.1.0",
+    "jest": "^21.0.2",
+    "superagent": "^3.6.0"
+  },
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.18.0",
+    "cors": "^2.8.4",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.4",
+    "jsonwebtoken": "^8.0.0",
+    "mongoose": "^4.11.11"
+  }
+}
