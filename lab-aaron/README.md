@@ -24,6 +24,10 @@ http://mongoosejs.com/
 
 https://httpie.org/doc
 
+https://www.npmjs.com/package/bcrypt
+
+https://www.npmjs.com/package/jsonwebtoken
+
 https://www.npmjs.com/package/express
 
 https://www.npmjs.com/package/cors
