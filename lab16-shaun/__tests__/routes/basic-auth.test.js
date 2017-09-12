@@ -1,16 +1,14 @@
 'use strict';
 
-const faker = require('faker');
-const mocks = require('../lib/mocks');
-const User = require('../../model/user');
-const superagent = require('superagent');
 const server = require('../../lib/server');
+// const User = require('../../model/user');
+const superagent = require('superagent');
+const faker = require('faker');
 require('jest');
 
 describe('Testing basic auth routes', function() {
   beforeAll(server.start);
   afterAll(server.stop);
-  afterEach(mocks.user.removeAll);
 
 
   describe('POST to /api/signup', function() {
@@ -21,10 +19,31 @@ describe('Testing basic auth routes', function() {
         email: faker.internet.email(),
       };
 
-      return superagent.post(':4444/api/signup')
-        .send(this.mockUserData)
-        .then(res => this.res = res)
-        .catch(console.error);
+      describe('should return and post a new user', () => {
+        return superagent.post(':4000/api/signup')
+          .send(this.mockUserData)
+          .then(res => {
+            this.res = res;
+            expect(this.res.status).toBe(200);
+          });
+      });
+
+      describe('invalid requests', () => {
+        test('should return a 400 error code');
+        return superagent.post(`:4000/api/signup`)
+          .send({})
+          .then(res => {
+            this.res = res;
+            expect(this.res.status).toBe(401);
+          });
+      });
+      test('should return a 404 error code');
+      return superagent.post(`:4000/api/signup`)
+        .send({})
+        .then(res => {
+          this.res = res;
+          expect(this.res.status).toBe(404);
+        });
     });
 
     test('should respond with a token', () => {
@@ -57,4 +76,23 @@ describe('Testing basic auth routes', function() {
       expect(this.res.status).toBe(200);
     });
   });
+
+  describe('invalid requests', () => {
+    test('should return a 400 error code with a bad sign in');
+    return superagent.post(`:4000/api/signin`)
+      .auth(this.mockUserData.password)
+      .send({})
+      .then(res => {
+        this.res = res;
+        expect(this.res.status).toBe(401);
+      });
+  });
+  test('should return a 404 error code');
+  return superagent.post(`:4000/api/signin`)
+    .auth(this.mockUserData.password)
+    .send({})
+    .then(res => {
+      this.res = res;
+      expect(this.res.status).toBe(404);
+    });
 });
