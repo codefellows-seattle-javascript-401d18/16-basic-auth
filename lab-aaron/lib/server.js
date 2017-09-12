@@ -29,7 +29,7 @@ server.start = () => {
   return new Promise((resolve, reject) => {
     if(!server || !server.isOn) {
       server.http = app.listen(process.env.PORT, () => {
-        debug(`Liistening on ${process.env.PORT}`);
+        debug(`Listening on ${process.env.PORT}`);
         server.isOn = true;
         resolve();
       });
