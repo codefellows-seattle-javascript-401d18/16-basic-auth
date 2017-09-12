@@ -67,4 +67,4 @@ User.methods.generateToken = function() {
   });
 };
 
-module.exports = mongoose.model('user', Usser);
+module.exports = mongoose.model('user', User);
