@@ -21,93 +21,79 @@ For right now, we're just creating the user and getting back the user....?
       2. You will need to install httpie in one terminal window to test HTTP requests.
       3. Then start type nodemon or node server.js in a separate terminal window to get your server running.
 
+
+# Mongo database steps:
+1. Create db folder within data folder.
+2. Upper left side terminal window (within lab-maddy folder)
+```
+npm run start:watch
+```
+3. Upper right window (within lab-maddy folder)
+```
+mongod --dbpath ./data/db
+```
+4. Lower right window (within lab-maddy folder)
+```
+mongo
+```
+5. Lower left window - POST, GET, PUT, DELETE requests
+
+### To see what's in your database:
+````
+show database
+````
+### Show collections:
+```
+show collections
+```
+### To open the collection you're working with:
+```
+use cf-gram-dev
+```
+### To delete the data in the collection:
+```
+drop cd-gram-dev
+```
+
 ## To test POST, GET, PUT and DELETE an object on the server, use these requests in terminal (we're able to do this with the http client superagent):
 
 
-## Example GET sign up:
+## Example POST(sign up) request:
 ```
-http POST :3000/api/signup username=donnie password=orange email=test@example.com
+http POST :3000/api/signup username=maddy password=1234 email=test@example.com
 ```
 
-## Example GET sign in:
+## Example GET(sign in) request:
+```
+http GET localhost:3000/api/signin/maddy1234
+```
+
 ```
 http -a user:pass :3000/api/signin
 ```
 
-### Example POST request:
-Type or copy paste the following into terminal:
-```
-http POST :5000/api/toy name=barney desc='purple dino'
-```
 
-## Example POST response:
+## Example PUT request:
 ```
-
-```
-
-## Example GET request:
-```
-http GET :3000/api/toy/toy?_id= <copy whatever ID you get from the POST into the GET>????
 ```
 Example:
 ```
-http GET localhost:3000/api/toy?_id=99c0f97f-3ab0-484d-afc6-607733ee0e83
-```
-## Example GET response:
-Should see:
-```
-HTTP/1.1 200 OK
-Connection: keep-alive
-Content-Type: application/json
-Date: Mon, 11 Sep 2017 01:37:08 GMT
-Transfer-Encoding: chunked
-
-{
-    "_id": "99c0f97f-3ab0-484d-afc6-607733ee0e83",
-    "desc": "purple dino",
-    "name": "barney"
-}
-
-```
-
-## Example PUT request: STILL NOT WORKING.
-```
-http PUT localhost:3000/api/toy?_id='sameID name=differentName desc=differentDesc'
-```
-Example:
-```
-http PUT localhost:3000/api/toy?_id='99c0f97f-3ab0-484d-afc6-607733ee0e83' name=maddy desc=human
 ```
 Kept seeing this, which is not what I thought we were supposed to see:
 ```
-HTTP/1.1 204 No Content
-Connection: keep-alive
-Content-Type: text/plain
-Date: Mon, 11 Sep 2017 02:22:21 GMT
+
 ```
 Then I decided to do a GET request:
 ```
-http GET localhost:3000/api/toy?_id=99c0f97f-3ab0-484d-afc6-607733ee0e83
 ```
 
 And saw this!!! Successful PUT!!!:
 ```
-HTTP/1.1 200 OK
-Connection: keep-alive
-Content-Type: application/json
-Date: Mon, 11 Sep 2017 02:22:52 GMT
-Transfer-Encoding: chunked
 
-{
-    "_id": "99c0f97f-3ab0-484d-afc6-607733ee0e83",
-    "desc": "human",
-    "name": "maddy"
-}
 ```
 
 ## Example DELETE request:
 ```
-http DELETE localhost:3000/api/toy?_id=99c0f97f-3ab0-484d-afc6-607733ee0e83
 ```
 
 
@@ -154,9 +140,9 @@ http DELETE localhost:3000/api/toy?_id=99c0f97f-3ab0-484d-afc6-607733ee0e83
 - Created an index.js and set it as the start point in package.json.
 - Created a .env file with the following:
 ```
-MONGODB_URI= 'mongodb://localhost/*yourDBname*'
-APP_SECRET='*A Specific secret word*'
-PORT = **SPECIFY A PORT**
+MONGODB_URI='mongodb://localhost/cf-gram-dev'
+APP_SECRET='superseekrettest'
+PORT=4000
 ```
 
 ## Any resources that helped me complete this assignment:
