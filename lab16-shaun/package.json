@@ -10,7 +10,7 @@
     "verbose": true,
     "testEnvironment": "node",
     "setupFiles": [
-      "./__test__/lib/jest-setup.js"
+      "./__tests__/lib/jest-setup.js"
     ],
     "collectCoverage": true,
     "coverageDirectory": "./coverage",
