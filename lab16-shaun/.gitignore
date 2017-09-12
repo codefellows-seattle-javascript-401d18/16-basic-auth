@@ -1,7 +1,11 @@
 # Created by https://www.gitignore.io/api/osx,linux,node,vim
-
-db/
-build/
+db
+build
+*.env
+.*.env
+.tern*
+whiteboard-solutions/
+frontend/
 
 ### OSX ###
 .DS_Store
@@ -46,11 +50,8 @@ coverage
 build/Release
 
 # Dependency directories
-data
 node_modules
 jspm_packages
-.env
-env
 
 # Optional npm cache directory
 .npm
@@ -69,4 +70,3 @@ Session.vim
 *~
 
 # auto-generated tag files
-tags
