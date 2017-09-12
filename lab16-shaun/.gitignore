@@ -1,5 +1,7 @@
 # Created by https://www.gitignore.io/api/osx,linux,node,vim
 
+node_modules
+node_module
 db
 build
 *.env
@@ -52,6 +54,7 @@ build/Release
 
 # Dependency directories
 node_modules
+node_module
 jspm_packages
 
 # Optional npm cache directory
