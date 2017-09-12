@@ -2,6 +2,7 @@
 
 node_modules
 node_module
+.test.env
 db
 build
 *.env
