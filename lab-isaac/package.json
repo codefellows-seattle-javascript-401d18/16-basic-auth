@@ -10,7 +10,7 @@
     "verbose": true,
     "testEnvironment": "node",
     "setupFiles": [
-      "./__test__/jest-setup.js"
+      "./__test__/lib/jest-setup.js"
     ],
     "collectCoverage": true,
     "coverageDirectory": "./coverage",
@@ -27,7 +27,7 @@
     "start": "node index.js",
     "start:watch": "nodemon index.js",
     "start:debug": "DEBUG=cfgram* nodemon index.js",
-    "start-db": "mkdir -p ./data/db && mongod --dbpath ./data/db",
+    "start-db": "mkdir -p ./db && mongod --dbpath ./db",
     "stop-db": "killall mongod",
     "test": "jest",
     "test:exit": "jest --forceExit",

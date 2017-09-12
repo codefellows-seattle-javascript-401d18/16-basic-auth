@@ -29,6 +29,6 @@ mocks.user.createOne = function() {
 
 mocks.user.removeAll = function() {
   return Promise.all([
-    // User.remove(),
+    User.remove(),
   ]);
 };
