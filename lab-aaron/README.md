@@ -1,4 +1,7 @@
-# Creating a Password Protected server
+[alt text](images/markus-spiske-153537.jpg)
+
+# Creating a Password Protected Server
+
 
 
 ## The Next Category
@@ -8,3 +11,8 @@
 
 
 #### About as small as i want to go?
+
+
+
+
+Photo by Markus Spiske on Unsplash
