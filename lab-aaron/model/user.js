@@ -13,6 +13,8 @@ const User = mongoose.Schema({
 });
 
 User.methods.generatePasswordHash = function(password) {
+// creates a hashed password for storing on the server
+//NO PLAIN TEXT
 
   return new Promise((resolve, reject) => {
     bcrypt.hash(password, 10, (err, hash) => {
@@ -24,6 +26,7 @@ User.methods.generatePasswordHash = function(password) {
 };
 
 User.methods.comparePasswordHash = function(password) {
+  // takes a users password and compares it with whats stored in the db
 
   return new Promise((resolve, reject) => {
     bcrypt.compare(password, this.password, (err, valid) => {
@@ -35,6 +38,7 @@ User.methods.comparePasswordHash = function(password) {
 };
 
 User.methods.generateFindHash = function() {
+  // unique hash to the user which helps cretae a token for further authorization requests
 
   return new Promise((resolve, reject) => {
     let tries = 0;
@@ -56,6 +60,9 @@ User.methods.generateFindHash = function() {
 };
 
 User.methods.generateToken = function() {
+  // this is a token given to the user after signup/in so they can make
+  // requests behind authentication
+  
 
   return new Promise((resolve, reject) => {
     this.generateFindHash()
