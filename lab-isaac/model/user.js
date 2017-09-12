@@ -42,7 +42,7 @@ User.methods.generateFindHash = function() {
     _generateFindHash.call(this);
 
     function _generateFindHash() {
-      this.findhash = crypto.randomByte(32).toString('hex');
+      this.findhash = crypto.randomBytes(32).toString('hex');
       this.save()
         .then( () => resolve(this.findhash))
         .catch(err => {
